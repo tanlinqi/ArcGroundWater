@@ -1,0 +1,16 @@
+KCN ArcMap 10.8 Script Tool binding notes
+
+Create a normal ArcMap Script Tool and bind it to:
+
+toolbox\kcn_arctoolbox.py
+
+Do not use a .pyt Python toolbox.
+
+Paste toolbox\ToolValidator.py into the Script Tool validation editor.
+
+The toolbox parameter order is documented in ..\README.md.
+
+Logs are written to:
+
+KCN\..\log\kcn-log\
+

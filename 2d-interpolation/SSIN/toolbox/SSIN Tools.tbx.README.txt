@@ -1,0 +1,5 @@
+ArcGIS 10.8 binary .tbx files cannot be authored or populated with ArcPy.
+
+Create "SSIN Tools.tbx" in this directory using ArcCatalog or ArcMap, then add
+ssin_arctoolbox.py as a Script Tool. README_ArcMap.md contains the exact
+parameter definitions and binding steps.

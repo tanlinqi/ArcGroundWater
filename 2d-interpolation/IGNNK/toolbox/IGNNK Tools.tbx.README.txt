@@ -1,0 +1,54 @@
+IGNNK ArcMap 10.8 Script Tool setup
+
+Create a normal ArcMap 10.8 Script Tool in a legacy .tbx toolbox.
+
+Script file:
+toolbox\ignnk_arctoolbox.py
+
+Do not use a .pyt Python toolbox.
+Run in foreground so the script can add GeoTIFF outputs to the current map.
+
+Parameter order:
+0  Input time-series CSV              File, Required, Input
+1  Time field                         String, Required, Input
+2  Station field                      String, Required, Input
+3  X / longitude field                String, Required, Input
+4  Y / latitude field                 String, Required, Input
+5  Value field                        String, Required, Input
+6  Start time                         String, Optional, Input
+7  End time                           String, Optional, Input
+8  Input coordinate system            Spatial Reference, Required, Input
+9  Interpolation extent               Extent, Optional, Input
+10 Cell size                          Double, Required, Input
+11 Output folder                      Folder, Required, Input
+12 Epochs                             Long, Required, Input
+13 Time window                        Long, Required, Input
+14 Hidden dimension                   Long, Required, Input
+15 Diffusion order                    Long, Required, Input
+16 Masked stations per batch          Long, Required, Input
+17 Learning rate                      Double, Required, Input
+18 Training batches per epoch         Long, Required, Input
+19 Query batch size                   Long, Required, Input
+20 Distance scale km                  Double, Required, Input
+21 Adjacency threshold                Double, Required, Input
+22 Value scale, 0 for auto            Double, Required, Input
+23 Treat 0 as missing                 Boolean, Optional, Input
+24 Device                             String, Required, Input
+25 Random seed                        Long, Required, Input
+26 Max grid cells                     Long, Required, Input
+27 Output rasters                     Raster Dataset, Derived, Output, MultiValue
+28 Output trained model               File, Derived, Output
+29 Output manifest                    File, Derived, Output
+30 Model Python                       File, Optional, Input
+31 Overwrite existing results          Boolean, Optional, Input
+
+Validation:
+Paste the full content of toolbox\ToolValidator.py into the Script Tool
+Validation editor after creating or changing parameters.
+
+Default Model Python:
+C:\Users\Lenovo\Miniconda3\envs\ssin\python.exe
+
+Logs:
+Each run writes a separate log file under:
+..\log\ignnk-log\ignnk_run_YYYYMMDD_HHMMSS.log

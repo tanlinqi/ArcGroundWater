@@ -1,0 +1,8 @@
+Create a normal ArcMap 10.8 Script Tool and bind it to:
+
+toolbox\deepkriging_arctoolbox.py
+
+Do not use a Python toolbox (.pyt). Copy the full content of
+toolbox\ToolValidator.py into the Script Tool Validation editor.
+
+Keep parameter order exactly as documented in README.md.
