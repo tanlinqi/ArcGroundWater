@@ -1,4 +1,4 @@
-"""ArcMap 10.8 Script Tool wrapper for DeepKriging."""
+﻿"""ArcMap 10.8 Script Tool wrapper for DeepKriging."""
 
 from __future__ import print_function
 
@@ -13,10 +13,10 @@ import arcpy
 import numpy
 
 
-DEFAULT_MODEL_PYTHON = r"C:\Users\Lenovo\Miniconda3\envs\ssin\python.exe"
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 REPO_DIR = os.path.dirname(SCRIPT_DIR)
-ARC_GROUND_DIR = os.path.dirname(REPO_DIR)
+ARC_GROUND_DIR = os.path.dirname(os.path.dirname(REPO_DIR))
+DEFAULT_MODEL_PYTHON = os.path.join(ARC_GROUND_DIR, "envs", "ssin", "python.exe")
 LOG_DIR = os.path.join(ARC_GROUND_DIR, "log", "deepkriging-log")
 BACKEND = os.path.join(REPO_DIR, "deepkriging_backend.py")
 CURRENT_LOG = None

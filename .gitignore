@@ -1,0 +1,15 @@
+﻿envs/
+env-packages/
+log/
+*.log
+__pycache__/
+*.pyc
+# 1D interpolation runtime outputs and local data
+1d-interpolation/python2/*.html
+1d-interpolation/python2/*.csv
+1d-interpolation/python2/*_Interpolation_Report.html/
+1d-interpolation/python2/arcwater_ml_manifest.json
+1d-interpolation/python2/echarts.min.js
+1d-interpolation/verify*/
+1d-interpolation/python3/~$*
+

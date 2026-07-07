@@ -12,11 +12,11 @@ import arcpy
 import numpy
 
 
-DEFAULT_SSIN_PYTHON = r"C:\Users\Lenovo\Miniconda3\envs\ssin\python.exe"
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 REPO_DIR = os.path.dirname(SCRIPT_DIR)
 BACKEND = os.path.join(REPO_DIR, "ssin_inference.py")
-PROJECT_ROOT = os.path.dirname(REPO_DIR)
+PROJECT_ROOT = os.path.dirname(os.path.dirname(REPO_DIR))
+DEFAULT_SSIN_PYTHON = os.path.join(PROJECT_ROOT, "envs", "ssin", "python.exe")
 LOG_DIR = os.path.join(PROJECT_ROOT, "log", "ssin-log")
 LOG_PATH = None
 

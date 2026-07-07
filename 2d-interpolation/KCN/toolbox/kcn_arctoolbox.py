@@ -1,4 +1,4 @@
-from __future__ import print_function
+﻿from __future__ import print_function
 
 import codecs
 import datetime
@@ -20,7 +20,7 @@ def now_text():
 
 
 def make_run_log(project_root):
-    log_dir = os.path.join(os.path.dirname(project_root), "log", MODEL_KEY + "-log")
+    log_dir = os.path.join(os.path.dirname(os.path.dirname(project_root)), "log", MODEL_KEY + "-log")
     if not os.path.isdir(log_dir):
         os.makedirs(log_dir)
     stamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -104,21 +104,13 @@ def boolean(index):
 
 def default_model_python(project_root):
     home = os.path.expanduser("~")
+    arcground_root = os.path.dirname(os.path.dirname(project_root))
     candidates = [
-        os.path.join(home, "Miniconda3", "envs", "kcn_env", "python.exe"),
-        os.path.join(home, "Miniconda3", "envs", "kcn", "python.exe"),
+        os.path.join(arcground_root, "envs", "ssin", "python.exe"),
         os.path.join(home, "Miniconda3", "envs", "ssin", "python.exe"),
-        os.path.join(home, "miniconda3", "envs", "kcn_env", "python.exe"),
-        os.path.join(home, "miniconda3", "envs", "kcn", "python.exe"),
         os.path.join(home, "miniconda3", "envs", "ssin", "python.exe"),
-        os.path.join(home, ".conda", "envs", "kcn_env", "python.exe"),
-        os.path.join(home, ".conda", "envs", "kcn", "python.exe"),
         os.path.join(home, ".conda", "envs", "ssin", "python.exe"),
-        os.path.join(home, "Anaconda3", "envs", "kcn_env", "python.exe"),
-        os.path.join(home, "Anaconda3", "envs", "kcn", "python.exe"),
         os.path.join(home, "Anaconda3", "envs", "ssin", "python.exe"),
-        os.path.join(home, "anaconda3", "envs", "kcn_env", "python.exe"),
-        os.path.join(home, "anaconda3", "envs", "kcn", "python.exe"),
         os.path.join(home, "anaconda3", "envs", "ssin", "python.exe"),
         os.path.join(project_root, "venv", "Scripts", "python.exe"),
     ]
@@ -126,7 +118,6 @@ def default_model_python(project_root):
         if os.path.isfile(candidate):
             return candidate
     return ""
-
 
 def check_model_python(value):
     code = (
@@ -390,3 +381,5 @@ if __name__ == "__main__":
             log_write(CURRENT_LOG_PATH, traceback.format_exc())
             log_write(CURRENT_LOG_PATH, "end_time: %s" % now_text())
         raise
+
+

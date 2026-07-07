@@ -1,4 +1,4 @@
-from __future__ import print_function
+﻿from __future__ import print_function
 
 import json
 import os
@@ -85,7 +85,7 @@ def log_line(log_handle, message):
 
 def build_log_path(project_root):
     log_dir = os.path.abspath(
-        os.path.join(project_root, os.pardir, "log", MODEL_KEY + "-log")
+        os.path.join(project_root, os.pardir, os.pardir, "log", MODEL_KEY + "-log")
     )
     if not os.path.isdir(log_dir):
         os.makedirs(log_dir)
@@ -229,7 +229,7 @@ def main():
     log_line(log_handle, "Python 3 backend: %s" % backend_script)
     model_python = text(30)
     if not model_python or model_python == "#":
-        model_python = r"C:\Users\Lenovo\Miniconda3\envs\ssin\python.exe"
+        model_python = os.path.abspath(os.path.join(project_root, os.pardir, os.pardir, "envs", "ssin", "python.exe"))
     log_line(log_handle, "Python 3 interpreter: %s" % model_python)
     log_line(log_handle, "Input CSV: %s" % input_csv)
     log_line(
@@ -350,3 +350,4 @@ if __name__ == "__main__":
         except Exception:
             pass
         raise
+
