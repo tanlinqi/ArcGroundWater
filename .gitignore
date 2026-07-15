@@ -13,3 +13,5 @@ __pycache__/
 1d-interpolation/verify*/
 1d-interpolation/python3/~$*
 
+tools/miniconda/
+tools/installers/

@@ -1,0 +1,27 @@
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - statsmodels
+  - matplotlib
+  - openpyxl
+  - pyproj
+  - geographiclib
+  - geopandas
+  - shapely
+  - pyogrio
+  - pykrige
+  - pillow
+  - requests
+  - tqdm
+  - psutil
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu128
+      - torch==2.11.0+cu128
+      - torch-geometric==2.8.0

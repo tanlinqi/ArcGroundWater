@@ -1,6 +1,6 @@
 ﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""Python 3 backend for ArcWater groundwater time-series imputation tools."""
+"""Python 3 backend for ArcGroundWater 1D time-series imputation tools."""
 
 from __future__ import print_function
 
@@ -60,7 +60,7 @@ FILE_SUFFIXES = {
 
 
 def parse_args(argv=None):
-    parser = argparse.ArgumentParser(description="Run ArcWater ML imputation")
+    parser = argparse.ArgumentParser(description="Run ArcGroundWater 1D ML imputation")
     parser.add_argument("--params-file", required=True)
     parser.add_argument("--run-log", default="")
     return parser.parse_args(argv)

@@ -13,9 +13,11 @@ import traceback
 import arcpy
 
 
-DEFAULT_PY3 = r"C:\Users\Lenovo\Miniconda3\envs\ssin\python.exe"
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.dirname(SCRIPT_DIR))
+ARC_GROUND_ROOT = os.path.dirname(PROJECT_ROOT)
+DEFAULT_PY3 = os.path.join(ARC_GROUND_ROOT, "envs", "ssin", "python.exe")
+LEGACY_PY3 = r"C:\Users\Lenovo\Miniconda3\envs\ssin\python.exe"
 BACKEND = os.path.join(PROJECT_ROOT, "python3", "ml", "gwl_fill_runner.py")
 LOG_ROOT = os.path.join(PROJECT_ROOT, "log")
 LOG_PATH = None
@@ -88,7 +90,7 @@ def create_log_file(method):
     path = os.path.join(log_dir, "{0}_{1}.log".format(ensure_text(method).lower(), stamp))
     open_path = filesystem_path(path)
     with open(open_path, "wb") as stream:
-        stream.write((u"ArcWater ML ArcMap run log\n").encode("utf-8"))
+        stream.write((u"ArcGroundWater 1D ML ArcMap run log\n").encode("utf-8"))
         stream.write((u"Started: {0}\n".format(datetime.datetime.now())).encode("utf-8"))
         stream.write((u"Method: {0}\n".format(ensure_text(method))).encode("utf-8"))
         stream.write((u"Backend: {0}\n\n".format(ensure_text(BACKEND))).encode("utf-8"))
@@ -140,15 +142,16 @@ def looks_like_python_executable(value):
 
 
 def find_python_executable(params):
-    env_value = os.environ.get("ARCWATER_PY3", "")
-    if env_value:
-        return env_value
     for value in reversed(params):
         if looks_like_python_executable(value):
             return ensure_text(value).strip().strip("'\"")
-    legacy = get_parameter(29)
-    if legacy:
-        return legacy
+    env_value = os.environ.get("ARCWATER_PY3", "")
+    if env_value:
+        return env_value
+    if os.path.isfile(DEFAULT_PY3):
+        return DEFAULT_PY3
+    if os.path.isfile(LEGACY_PY3):
+        return LEGACY_PY3
     return DEFAULT_PY3
 
 
